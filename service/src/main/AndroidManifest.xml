@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.reader.service">
+
+    <uses-permission android:name="android.permission.REBOOT" />
+
+    <application
+        android:name="com.telpo.omcservice.AppApplication"
+        android:allowBackup="false"
+        android:label="readerService"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.telpo.omcservice.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.telpo.omcservice.DelegateService"
+            android:exported="true" />
+
+<!--        android:process=":my_unique_process"-->
+        <service
+            android:name=".ReaderService"
+            android:exported="true"
+            android:enabled="true"
+            >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.reader.service.action" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,101 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "30.0.3"
+    defaultConfig {
+        applicationId "com.reader.client"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0.${versionCode}.${buildDate()}"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk{
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    signingConfigs {
+        //普通签名
+        debug {
+            keyAlias 'telpo'
+            keyPassword '123456'
+            storeFile file('../app.jks')
+            storePassword '123456'
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //安装包名称
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "ReaderDemo-V${variant.versionName}.apk"
+        }
+    }
+}
+
+dependencies {
+//    implementation fileTree(dir: 'libs', include: ['*.aar','*.jar']) //加载包
+    implementation project (':library') //加载项目
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.4.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    // 时间工具库
+    api 'joda-time:joda-time:2.9.9'
+    //日志库
+    api 'com.jakewharton.timber:timber:4.5.1'
+    // Android版fastJson
+    api 'com.alibaba:fastjson:1.1.70.android'
+
+}
+
+task makeRelease {
+    dependsOn 'assembleRelease'
+    doLast {
+        def names = []
+        android.applicationVariants.all { variant ->
+            variant.outputs.all {
+                names.add(variant.flavorName)
+            }
+        }
+        copy {
+            into('release')
+            for (name in names) {
+                from("build/outputs/apk/${name}/release") {
+                    include("*.apk")
+                }
+            }
+        }
+        for (name in names) {
+            delete "build/outputs/apk/${name}/release"
+        }
+    }
+}
+
+static def buildDate() {
+    return new Date().format("yyMMdd", TimeZone.getTimeZone("UTC"))
+}

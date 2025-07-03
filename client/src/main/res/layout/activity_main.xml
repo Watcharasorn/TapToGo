@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--2 滚动按钮-->
+    <ScrollView
+        android:id="@+id/ll_bts"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_msg"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <!--竖排-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+            <!--NFC-->
+            <Button
+                android:id="@+id/bt_tab_nfc"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/button_number_violet_shape"
+                style="@style/buttonNumberStyle"
+                android:text="NFC"
+                android:layout_marginBottom="10dp"/>
+            <!-- info -->
+            <Button
+                android:id="@+id/bt_tab_info"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/button_number_violet_shape"
+                style="@style/buttonNumberStyle"
+                android:layout_marginBottom="10dp"
+                android:text="@string/main_info"
+                 />
+            <!--update-->
+            <Button
+                android:id="@+id/bt_tab_update"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/button_number_violet_shape"
+                style="@style/buttonNumberStyle"
+                android:text="@string/main_update"
+                android:layout_marginBottom="10dp"/>
+            <!--EMV-->
+            <Button
+                android:id="@+id/bt_tab_emv"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/button_number_violet_shape"
+                style="@style/buttonNumberStyle"
+                android:text="EMV"
+                android:layout_marginBottom="10dp"/>
+
+            <!--关闭-->
+            <Button
+                android:id="@+id/bt_close"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/button_number_violet_shape"
+                style="@style/buttonNumberStyle"
+                android:text="close"
+                android:layout_marginBottom="10dp"/>
+<!--            &lt;!&ndash;led&ndash;&gt;-->
+<!--            <Button-->
+<!--                android:id="@+id/bt_tab_led_buzzer"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:background="@drawable/button_number_violet_shape"-->
+<!--                style="@style/buttonNumberStyle"-->
+<!--                android:text="led_test"-->
+<!--                android:layout_marginBottom="10dp"/>-->
+
+<!--            &lt;!&ndash;attack&ndash;&gt;-->
+<!--            <Button-->
+<!--                android:id="@+id/bt_tab_attack"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:background="@drawable/button_number_violet_shape"-->
+<!--                style="@style/buttonNumberStyle"-->
+<!--                android:text="attack_test"-->
+<!--                android:layout_marginBottom="10dp"/>-->
+
+
+        </LinearLayout>
+    </ScrollView>
+    <!--1 显示回调内容-->
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_version"
+        app:layout_constraintTop_toBottomOf="@+id/ll_bts"
+        />
+    <!--1 版本-->
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
