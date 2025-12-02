@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">reader</string>
+    <string name="app_name">Tab And Go</string>
     <string name="color_bule">blue</string>
     <string name="color_yellow">yellow</string>
     <string name="color_green">green</string>
@@ -12,6 +12,7 @@
     <string name="info_system">system version</string>
     <string name="info_ic">ic version</string>
     <string name="info_sn">SN</string>
+    <string name="attack">attack</string>
     <string name="attack_type">attack type</string>
     <string name="attack_source">attack source</string>
     <string name="attack_reset">attack reset</string>
@@ -222,4 +223,23 @@
     <string name="nfc_loop_find">loop read</string>
     <string name="nfc_loop_start_find">Start Read</string>
     <string name="nfc_loop_stop_find">Stop Read</string>
+
+    <!-- common  -->
+    <string name="common_stress_test">Stress Test</string>
+    <string name="common_open">open</string>
+    <string name="common_close">close</string>
+    <string name="common_success">success</string>
+
+    <!-- led_test -->
+    <string name="subsystem_led_test_title">LED Buzzer Test</string>
+    <string name="subsystem_led_control">LED Control</string>
+    <string name="subsystem_led_type">TYPE</string>
+    <string name="subsystem_led_color">COLOR</string>
+    <string name="subsystem_buzzer_control">Buzzer Control</string>
+
+    <string-array name="ledColor">
+        <item>red</item>
+        <item>green</item>
+        <item>yellow</item>
+    </string-array>
 </resources>

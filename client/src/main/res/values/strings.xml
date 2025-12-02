@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">reader</string>
+    <string name="app_name">Tab And Go</string>
     <string name="color_bule">蓝色</string>
     <string name="color_yellow">黄色</string>
     <string name="color_green">绿色</string>
@@ -11,6 +11,7 @@
     <string name="info_system">系统版本</string>
     <string name="info_ic">单片版本</string>
     <string name="info_sn">系统SN</string>
+    <string name="attack">防拆</string>
     <string name="attack_type">攻击类型</string>
     <string name="attack_source">攻击源头</string>
     <string name="attack_reset">防拆复位</string>
@@ -22,14 +23,14 @@
     <string name="nfc_open">上电</string>
     <string name="nfc_close">下电</string>
     <string name="nfc_detect">寻卡</string>
-<!--    <string name="nfc_card_data">NFC卡片数据</string>-->
+    <!--    <string name="nfc_card_data">NFC卡片数据</string>-->
     <string name="update_ic">升级芯片</string>
     <string name="update_system">升级系统</string>
     <string name="system_reboot">系统重启</string>
     <string name="log_download">下载日志</string>
     <string name="info_sdk_service_version">"SDK服务版本"</string>
     <string name="nfc_apdu">APDU</string>
-<!--    <string name="nfc_authentication">加载密钥</string>-->
+    <!--    <string name="nfc_authentication">加载密钥</string>-->
     <string name="nfc_readblock">读块内容</string>
     <string name="nfc_writeblock">写块内容</string>
     <string name="nfc_readvalue">读数值</string>
@@ -63,7 +64,7 @@
     <string name="psam_test">PSAM测试</string>
     <string name="open_reader">打开读卡器</string>
     <string name="close_reader">关闭读卡器</string>
-    <string name="verify">验证</string>
+        <string name="verify">验证</string>
     <string name="modify">修改</string>
     <string name="sle4442read_addr">读取地址(0~255):</string>
     <string name="sle4442read_numm">读取个数(1~256):</string>
@@ -221,4 +222,23 @@
     <string name="nfc_loop_find">循环寻卡</string>
     <string name="nfc_loop_start_find">开始寻卡</string>
     <string name="nfc_loop_stop_find">停止寻卡</string>
+
+    <!-- common  -->
+    <string name="common_stress_test">压测</string>
+    <string name="common_open">打开</string>
+    <string name="common_close">关闭</string>
+    <string name="common_success">成功</string>
+
+    <!-- led_test -->
+    <string name="subsystem_led_test_title">LED和蜂鸣测试</string>
+    <string name="subsystem_led_control">LED控制</string>
+    <string name="subsystem_led_type">类型</string>
+    <string name="subsystem_led_color">颜色</string>
+    <string name="subsystem_buzzer_control">蜂鸣 控制</string>
+
+    <string-array name="ledColor">
+        <item>红</item>
+        <item>绿</item>
+        <item>黄</item>
+    </string-array>
 </resources>

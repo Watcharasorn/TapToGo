@@ -1,4 +1,2 @@
 include ":client"
-include ':library',':service'
 rootProject.name='readerserver'
-

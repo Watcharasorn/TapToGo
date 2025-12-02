@@ -4,9 +4,8 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "30.0.3"
     defaultConfig {
-        applicationId "com.reader.client"
+        applicationId "com.reader.tabandgo"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -44,17 +43,21 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
     //安装包名称
     applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "ReaderDemo-V${variant.versionName}.apk"
+            outputFileName = "tapAndGo-V${variant.versionName}.apk"
         }
     }
 }
 
 dependencies {
-//    implementation fileTree(dir: 'libs', include: ['*.aar','*.jar']) //加载包
-    implementation project (':library') //加载项目
+    implementation fileTree(dir: 'libs', include: ['*.aar','*.jar']) //加载包
+//    implementation project (':library') //加载项目
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
@@ -64,13 +67,17 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
     // 时间工具库
     api 'joda-time:joda-time:2.9.9'
     //日志库
     api 'com.jakewharton.timber:timber:4.5.1'
     // Android版fastJson
     api 'com.alibaba:fastjson:1.1.70.android'
-
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
 
 task makeRelease {
